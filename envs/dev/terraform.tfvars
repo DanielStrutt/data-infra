@@ -4,5 +4,5 @@
 
 # s3_buckets = [
 #   "raw",
-#   "processed",
+#   "staging",
 # ]
