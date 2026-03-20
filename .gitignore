@@ -1,0 +1,35 @@
+# Local .terraform directory (contains provider plugins)
+.terraform/
+
+# Terraform lock file - commit this to source control
+# !.terraform.lock.hcl
+
+# State files - NEVER commit these (contain sensitive data)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Sensitive variable files - NEVER commit these
+*.tfvars
+*.tfvars.json
+# Allow env-specific tfvars (they only contain non-sensitive values like environment name)
+!envs/**/*.tfvars
+
+# Override files (local developer overrides)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI config (contains credentials)
+.terraformrc
+terraform.rc
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
