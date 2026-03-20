@@ -8,9 +8,9 @@ terraform {
     }
   }
 
+  # key is passed via -backend-config in CI so dev/prod use separate state files
   backend "s3" {
     bucket         = "tf-state-695247375742"
-    key            = "data-infra/terraform.tfstate"
     region         = "eu-west-2"
     dynamodb_table = "terraform-state-lock"
     encrypt        = true
