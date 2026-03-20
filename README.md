@@ -2,7 +2,28 @@
 
 Terraform infrastructure repo for AWS.
 
-## Prerequisites
+## GitHub Actions Workflows
+
+This repository uses GitHub Actions to automate Terraform planning and deployment for both dev and prod environments. The workflows are located in `.github/workflows/` and include:
+
+- **dev-plan.yml**: Runs on every push to the `dev` branch. It checks out the code, sets up Terraform and AWS credentials, runs `terraform init` and `terraform plan` with the dev environment variables, and uploads the plan as an artifact.
+
+- **dev-apply.yml**: Can be triggered manually (workflow_dispatch) and requires confirmation. It validates the confirmation input, checks out the code, sets up Terraform and AWS credentials, re-initializes Terraform, and runs a plan before applying changes to the dev environment.
+
+- **prod-plan.yml**: Runs on pull requests targeting the `main` branch. It checks out the code, sets up Terraform and AWS credentials, runs `terraform init` and `terraform plan` with the prod environment variables, and posts the plan output as a comment on the PR. This helps review infrastructure changes before merging to production.
+
+- **prod-apply.yml**: Runs automatically on every push to the `main` branch. It checks out the code, sets up Terraform and AWS credentials, runs `terraform init`, creates a plan, and then applies the plan to the prod environment.
+
+**Summary:**
+
+- All changes to infrastructure are planned and reviewed before being applied.
+- Dev changes are applied manually with confirmation, while prod changes require a PR and are applied automatically after merging to `main`.
+- AWS credentials are managed via GitHub secrets.
+- Plans and applies are always run with the correct environment-specific variables and state files.
+
+---
+
+## Prerequisites and Setup
 
 - [Terraform](https://developer.hashicorp.com/terraform/install) >= 1.0
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) v2
