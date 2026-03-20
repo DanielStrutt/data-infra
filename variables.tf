@@ -26,3 +26,9 @@ variable "s3_buckets" {
   type        = list(string)
   default     = []
 }
+
+variable "ecr_repositories" {
+  description = "List of ECR repository name suffixes to create. Each becomes <project>-<env>-<suffix>."
+  type        = list(string)
+  default     = []
+}

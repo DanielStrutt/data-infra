@@ -22,3 +22,13 @@ output "s3_bucket_arns" {
   description = "Map of suffix -> bucket ARN for all S3 buckets in this environment"
   value       = { for k, v in module.s3 : k => v.bucket_arn }
 }
+
+output "ecr_repository_urls" {
+  description = "Map of suffix -> ECR repository URL for all ECR repositories in this environment"
+  value       = { for k, v in module.ecr : k => v.repository_url }
+}
+
+output "ecr_repository_arns" {
+  description = "Map of suffix -> ECR repository ARN for all ECR repositories in this environment"
+  value       = { for k, v in module.ecr : k => v.repository_arn }
+}
