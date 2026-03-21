@@ -6,3 +6,7 @@ s3_buckets = [
   "raw",
   "staging",
 ]
+
+ecr_repositories = [
+  "data-pipeline"
+]
