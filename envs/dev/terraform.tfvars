@@ -8,5 +8,5 @@ s3_buckets = [
 ]
 
 ecr_repositories = [
-  "app"
+  "data-pipeline"
 ]
