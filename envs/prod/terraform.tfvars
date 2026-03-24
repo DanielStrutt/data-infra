@@ -5,6 +5,7 @@ environment  = "prod"
 s3_buckets = [
   "raw",
   "staging",
+  "new-s3-bucket"
 ]
 
 ecr_repositories = [
