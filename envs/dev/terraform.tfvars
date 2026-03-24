@@ -5,7 +5,7 @@ environment  = "dev"
 s3_buckets = [
   "raw",
   "staging",
-  "new_s3_bucket"
+  "new-s3-bucket"
 ]
 
 ecr_repositories = [
